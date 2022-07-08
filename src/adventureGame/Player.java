@@ -3,16 +3,20 @@ package adventureGame;
 import java.util.Scanner;
 
 public class Player {
-    Inventory inventory;
+
     private int damage;
     private int health;
     private int money;
     private String name;
     private String charName;
     private Scanner scan = new Scanner(System.in);
+    private Inventory inv;
 
+public int getTotalDamage(){
+    return damage+ this.getInv().getWeapon().getDamage();
+}
     public int getDamage() {
-        return damage;
+        return damage+ this.getInv().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -51,8 +55,17 @@ public class Player {
         this.charName = charName;
     }
 
+    public Inventory getInv() {
+        return inv;
+    }
+
+    public void setInv(Inventory inv) {
+        this.inv = inv;
+    }
+
     public Player(String name) {
         this.name = name;
+        this.inv= new Inventory();
     }
 
     public void selectChar() {
@@ -90,11 +103,23 @@ public class Player {
 
 
     }
+    public void selectLoc(){
+
+
+    }
     public void initPlayer(GameCharacter gameCharacter){
 
         this.setCharName(gameCharacter.getName());
         this.setDamage(gameCharacter.getDamage());
         this.setHealth(gameCharacter.getHealth());
         this.setMoney(gameCharacter.getMoney());
+    }
+    public void printInfo(){
+        System.out.println("Weapon: "+ this.getInv().getWeapon().getName() +
+                ", Armor: "+ this.getInv().getArmor().getName()+
+                ", Block: "+ this.getInv().getArmor().getBlock()+
+                ", Damage: "+ this.getTotalDamage() +
+                ", Health: " + this.getHealth() +
+                ", Money: " + this.getMoney());
     }
 }
