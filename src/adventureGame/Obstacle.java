@@ -12,9 +12,9 @@ public class Obstacle {
         this.ID = ID;
         this.name = name;
         this.damage = damage;
-        this.award=award;
+        this.award = award;
         this.health = health;
-        this.originalHealth=health;
+        this.originalHealth = health;
     }
 
     public int getOriginalHealth() {
@@ -62,8 +62,8 @@ public class Obstacle {
     }
 
     public void setHealth(int health) {
-        if(health<0){
-            health=0;
+        if (health < 0) {
+            health = 0;
         }
         this.health = health;
     }

@@ -1,10 +1,18 @@
 package adventureGame;
 
 public class Armor {
+
     private int ID;
     private String name;
     private int block;
     private int price;
+
+    public Armor(int ID, String name, int block, int price) {
+        this.ID = ID;
+        this.name = name;
+        this.block = block;
+        this.price = price;
+    }
     public static Armor[] armors(){
         Armor[] armorList= new Armor[3];
         armorList[0]= new Armor(1, "Light", 1, 15);
@@ -22,12 +30,7 @@ public class Armor {
         return null;
     }
 
-    public Armor(int ID, String name, int block, int price) {
-        this.ID = ID;
-        this.name = name;
-        this.block = block;
-        this.price = price;
-    }
+
 
     public int getID() {
         return ID;

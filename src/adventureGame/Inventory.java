@@ -1,12 +1,19 @@
 package adventureGame;
 
 public class Inventory {
+
     private Weapon weapon;
     private Armor armor;
+    private boolean water;
+    private boolean food;
+    private boolean firewood;
 
-    public Inventory(){
-        this.weapon= new Weapon("Punch",-1,0,0);
-        this.armor= new Armor(-1, "Rag",0,0);
+    public Inventory() {
+        this.weapon = new Weapon("Punch", -1, 0, 0);
+        this.armor = new Armor(-1, "Rag", 0, 0);
+        this.water = false;
+        this.food = false;
+        this.firewood = false;
     }
 
     public Armor getArmor() {
@@ -24,11 +31,28 @@ public class Inventory {
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
-// private boolean water;
-  // private boolean food;
-  // private boolean firewood;
-  // private String weaponName;
-  // private String armorName;
-  // private int weaponDamage;
-  // private int armorDefence;
+
+    public boolean isWater() {
+        return water;
+    }
+
+    public void setWater(boolean water) {
+        this.water = water;
+    }
+
+    public boolean isFood() {
+        return food;
+    }
+
+    public void setFood(boolean food) {
+        this.food = food;
+    }
+
+    public boolean isFirewood() {
+        return firewood;
+    }
+
+    public void setFirewood(boolean firewood) {
+        this.firewood = firewood;
+    }
 }

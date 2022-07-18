@@ -7,8 +7,8 @@ public class ToolStore extends NormalLoc {
 
     public boolean onLocation() {
         System.out.println("****** Welcome to The Tool Store! *******");
-        boolean showMenu= true;
-        while(showMenu) {
+        boolean showMenu = true;
+        while (showMenu) {
             System.out.println("1.Weapon");
             System.out.println("2.Armor");
             System.out.println("3.Exit");
@@ -29,32 +29,32 @@ public class ToolStore extends NormalLoc {
                     buyArmor();
                     break;
                 case 3:
-                    System.out.println("Good Bye!");
-                    showMenu= false;
+                    System.out.println("See you!");
+                    showMenu = false;
                     break;
             }
-
         }
         return true;
     }
 
     public void printArmor() {
         System.out.println("*****Armors******");
-        for(Armor a: Armor.armors()){
-            System.out.println(a.getID()+" - "+ a.getName()+ " < Price: " +a.getPrice()+"<, Armor: "+ a.getBlock()+ " > ");
+        for (Armor a : Armor.armors()) {
+            System.out.println(a.getID() + " - " + a.getName() + " < Price: " + a.getPrice() + "<, Armor: " + a.getBlock() + " > ");
         }
         System.out.println("0 - Çıkış yap");
     }
-    public void buyArmor(){
+
+    public void buyArmor() {
         System.out.println("Select a armor: ");
-        int selectArmorID= scan.nextInt();
-        while(selectArmorID<0 || selectArmorID>Armor.armors().length){
+        int selectArmorID = scan.nextInt();
+        while (selectArmorID < 0 || selectArmorID > Armor.armors().length) {
             System.out.println("Invalid value, try again: ");
-            selectArmorID=scan.nextInt();
+            selectArmorID = scan.nextInt();
         }
-        if(selectArmorID!=0){
-            Armor selectedArmor= Armor.getArmorObjByID(selectArmorID);
-            if(selectedArmor!= null) {
+        if (selectArmorID != 0) {
+            Armor selectedArmor = Armor.getArmorObjByID(selectArmorID);
+            if (selectedArmor != null) {
                 if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
                     System.out.println("Insufficient Balance");
                 } else {
@@ -73,10 +73,10 @@ public class ToolStore extends NormalLoc {
 
     public void printWeapon() {
         System.out.println("*** Weapons ***");
-        for (Weapon w:Weapon.weapons()) {
-            System.out.println(w.getID()+"-"+w.getName()+ "<Price: "+ w.getPrice()+ ", Damage: "+ w.getDamage()+">");
+        for (Weapon w : Weapon.weapons()) {
+            System.out.println(w.getID() + "-" + w.getName() + "<Price: " + w.getPrice() + ", Damage: " + w.getDamage() + ">");
         }
-        System.out.println("0 - Çıkış yap");
+        System.out.println("0-Exit");
     }
 
 
@@ -87,7 +87,7 @@ public class ToolStore extends NormalLoc {
             System.out.println("Invalid value, try again: ");
             selectWeaponID = scan.nextInt();
         }
-        if (selectWeaponID!=0) {
+        if (selectWeaponID != 0) {
             Weapon selectedWeapon = Weapon.getWeaponObjByID(selectWeaponID);
             if (selectedWeapon.getPrice() > this.getPlayer().getMoney()) {
                 System.out.println("Insufficient Balance");
@@ -98,7 +98,7 @@ public class ToolStore extends NormalLoc {
                 System.out.println("Your Balance: " + this.getPlayer().getMoney());
                 // System.out.println("Previous weapon: "+this.getPlayer().getInv().getWeapon().getName());
                 this.getPlayer().getInv().setWeapon(selectedWeapon);
-                // System.out.println("New weapon: "+this.getPlayer().getInv().getWeapon().getName());
+                System.out.println("New weapon: " + this.getPlayer().getInv().getWeapon().getName());
             }
 
         }

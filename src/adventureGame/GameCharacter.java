@@ -8,8 +8,8 @@ public abstract class GameCharacter {
     private int money;
 
 
-    public GameCharacter(int ID,String name, int damage, int health, int money) {
-        this.ID=ID;
+    public GameCharacter(int ID, String name, int damage, int health, int money) {
+        this.ID = ID;
         this.name = name;
         this.damage = damage;
         this.health = health;
