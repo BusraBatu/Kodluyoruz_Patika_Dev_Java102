@@ -1,4 +1,4 @@
-package homework_WritingListClass;
+package exceptionHandling;
 
 public class MyList<T> {
     private T[] arr;

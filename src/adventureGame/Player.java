@@ -83,42 +83,57 @@ public class Player {
             System.out.println("0- Exit");
             System.out.print("Please select your location: ");
             int selectLoc = scan.nextInt();
+            while (selectLoc < 0 || selectLoc > 6) {
+                System.out.print("Please enter a valid input : ");
+                selectLoc = scan.nextInt();
+            }
             switch (selectLoc) {
-                case 0:
-                    location = null;
-                    break;
-                case 1:
-                    location = new SafeHouse(this);
-                    break;
+
                 case 2:
                     location = new ToolStore(this);
                     break;
                 case 3:
-                    location = new Cave(this);
+                    if (!this.getInv().isFirewood())
+                        location = new Forest(this);
+                    else {
+                        System.out.println("You cannot enter that area again! ");
+                    }
                     break;
                 case 4:
-                    location = new Forest(this);
+                    if (!this.getInv().isFood())
+                        location = new Cave(this);
+                    else {
+                        System.out.println("You cannot enter that area again! ");
+                    }
                     break;
                 case 5:
-                    location = new River(this);
+                    if (!this.getInv().isWater())
+                        location = new River(this);
+                    else {
+                        System.out.println("You cannot enter that area again! ");
+                    }
                     break;
                 case 6:
                     location = new Mine(this);
                     break;
                 default:
-                    System.out.println("Please select valid location!");
+                    location = new SafeHouse(this);
                     break;
+
             }
-            if (location == null) {
-                System.out.println("See you");
-                break;
+            if (location.getClass().getName().equals("SafeHouse")) {
+                if (this.getInv().isFirewood() && this.getInv().isFood() && this.getInv().isWater()) {
+                    System.out.println("CONGRATULATIONS ON YOUR WIN.");
+                    break;
+                }
             }
             if (!location.onLocation()) {
-                System.out.println("Game Over!");
+                System.out.println("Game Over !");
                 break;
             }
         }
     }
+
 
     public boolean isWin(Player player) {
         return getInv().isWater() && getInv().isFood() && getInv().isFirewood();

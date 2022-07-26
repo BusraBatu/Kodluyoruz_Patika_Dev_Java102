@@ -48,6 +48,113 @@ public abstract class BattleLoc extends Location {
         }
         return true;
     }
+    /*
+
+     public int printStart() {
+        int obsCount = obstacle.count();
+        System.out.println("You are here now : " + this.getName());
+        System.out.println("Be aware ! " + obsCount + " " + obstacle.getName() + "s lives there!");
+        System.out.print("<F>ight or <R>un :");
+        return obsCount;
+    }
+
+     public boolean getLocationMines() {
+        Scanner scan = new Scanner(System.in);
+        int obsCount = printStart();
+        String selCase = scan.nextLine();
+        selCase = selCase.toUpperCase();
+        if (selCase.equals("F")) {
+            if (combat(obsCount)) {
+                System.out.println(this.getName() + " has been cleared !");
+
+                Random random = new Random();
+                int luckyNumber = random.nextInt(101);
+
+                if (luckyNumber >= 55) {
+                    System.out.println("You've won nothing");
+                } else if (luckyNumber >= 30) {
+                    System.out.println("You won random amount of money!");
+                    luckyNumber = random.nextInt(101);
+                    if (luckyNumber >= 50) {
+                        System.out.println("You won 1 money! ");
+                        player.setMoney(player.getMoney() + 1);
+                    } else if (luckyNumber >= 20) {
+                        System.out.println("You won 3 money! ");
+                        player.setMoney(player.getMoney() + 3);
+                    } else {
+                        System.out.println("Jackpot! You won 10 money! ");
+                        player.setMoney(player.getMoney() + 10);
+                    }
+                } else if (luckyNumber >= 15) {
+                    System.out.println("You won random armour!");
+                    luckyNumber = random.nextInt(101);
+                    if (luckyNumber >= 50) {
+                        System.out.println("You won light armour! ");
+                        if (player.getInventory().getArmorDefence() > 1) {
+                            System.out.println("But you have better armour! No changes");
+                        } else {
+                            player.getInventory().setArmorDefence(1);
+                            System.out.println("You equipped your armour !");
+                        }
+                    } else if (luckyNumber >= 20) {
+                        System.out.println("You won medium armour! ");
+                        if (player.getInventory().getArmorDefence() > 3) {
+                            System.out.println("But you have better armour! No changes");
+                        } else {
+                            player.getInventory().setArmorDefence(3);
+                            System.out.println("You equipped your armour !");
+                        }
+                    } else {
+                        System.out.println("You won heavy armour! ");
+                        if (player.getInventory().getArmorDefence() > 5) {
+                            System.out.println("But you have better armour! No changes");
+                        } else {
+                            player.getInventory().setArmorDefence(5);
+                            System.out.println("You equipped your armour !");
+                        }
+                    }
+                } else {
+                    System.out.println("You won random weapon!");
+                    luckyNumber = random.nextInt(101);
+                    if (luckyNumber >= 50) {
+                        System.out.println("You won gun! ");
+                        if (player.getInventory().getWeaponDamage() > 2) {
+                            System.out.println("But you have better weapon! No changes");
+                        } else {
+                            player.getInventory().setWeaponDamage(2);
+                            System.out.println("You equipped your weapon !");
+                        }
+                    } else if (luckyNumber >= 20) {
+                        System.out.println("You won medium weapon! ");
+                        if (player.getInventory().getWeaponDamage() > 3) {
+                            System.out.println("But you have better armour! No changes");
+                        } else {
+                            player.getInventory().setWeaponDamage(3);
+                            System.out.println("You equipped your armour !");
+                        }
+                    } else {
+                        System.out.println("You won heavy armour! ");
+                        if (player.getInventory().getWeaponDamage() > 7) {
+                            System.out.println("But you have better armour! No changes");
+                        } else {
+                            player.getInventory().setWeaponDamage(7);
+                            System.out.println("You equipped your armour !");
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            if (player.getHealthy() <= 0) {
+                System.out.println("You died !");
+                return false;
+            }
+
+        }
+        return true;
+    }
+     */
 
     public boolean combat(int obsNumber) {
 
